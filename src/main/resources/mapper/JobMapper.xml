@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mySSM.dao.JobMapper" >
+  <resultMap id="BaseResultMap" type="com.mySSM.model.Job" >
+    <id column="fid" property="fid" jdbcType="INTEGER" />
+    <result column="ftitle" property="ftitle" jdbcType="VARCHAR" />
+    <result column="fcontent" property="fcontent" jdbcType="VARCHAR" />
+    <result column="fscore" property="fscore" jdbcType="VARCHAR" />
+    <result column="fuserid" property="fuserid" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    fid, ftitle, fcontent, fscore, fuserid
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_user_job
+    where fid = #{fid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from t_user_job
+    where fid = #{fid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.mySSM.model.Job" >
+    insert into t_user_job (fid, ftitle, fcontent, 
+      fscore, fuserid)
+    values (#{fid,jdbcType=INTEGER}, #{ftitle,jdbcType=VARCHAR}, #{fcontent,jdbcType=VARCHAR}, 
+      #{fscore,jdbcType=VARCHAR}, #{fuserid,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.mySSM.model.Job" >
+    insert into t_user_job
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="fid != null" >
+        fid,
+      </if>
+      <if test="ftitle != null" >
+        ftitle,
+      </if>
+      <if test="fcontent != null" >
+        fcontent,
+      </if>
+      <if test="fscore != null" >
+        fscore,
+      </if>
+      <if test="fuserid != null" >
+        fuserid,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="fid != null" >
+        #{fid,jdbcType=INTEGER},
+      </if>
+      <if test="ftitle != null" >
+        #{ftitle,jdbcType=VARCHAR},
+      </if>
+      <if test="fcontent != null" >
+        #{fcontent,jdbcType=VARCHAR},
+      </if>
+      <if test="fscore != null" >
+        #{fscore,jdbcType=VARCHAR},
+      </if>
+      <if test="fuserid != null" >
+        #{fuserid,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.mySSM.model.Job" >
+    update t_user_job
+    <set >
+      <if test="ftitle != null" >
+        ftitle = #{ftitle,jdbcType=VARCHAR},
+      </if>
+      <if test="fcontent != null" >
+        fcontent = #{fcontent,jdbcType=VARCHAR},
+      </if>
+      <if test="fscore != null" >
+        fscore = #{fscore,jdbcType=VARCHAR},
+      </if>
+      <if test="fuserid != null" >
+        fuserid = #{fuserid,jdbcType=INTEGER},
+      </if>
+    </set>
+    where fid = #{fid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.mySSM.model.Job" >
+    update t_user_job
+    set ftitle = #{ftitle,jdbcType=VARCHAR},
+      fcontent = #{fcontent,jdbcType=VARCHAR},
+      fscore = #{fscore,jdbcType=VARCHAR},
+      fuserid = #{fuserid,jdbcType=INTEGER}
+    where fid = #{fid,jdbcType=INTEGER}
+  </update>
+</mapper>
