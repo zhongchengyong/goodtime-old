@@ -5,7 +5,7 @@
   <artifactId>mySSM</artifactId>
   <packaging>war</packaging>
   <version>0.0.1-SNAPSHOT</version>
-  <name>mySSM Maven Webapp</name>
+  <name>GoodTime</name>
   <url>http://maven.apache.org</url>
   <dependencies>
        <dependency>
@@ -97,22 +97,6 @@
        </dependency>
 
        <dependency>
-           <groupId>org.apache.logging.log4j</groupId>
-           <artifactId>log4j-slf4j-impl</artifactId>
-           <version>${log4j2.version}</version>
-       </dependency>
-       <dependency>
-           <groupId>org.apache.logging.log4j</groupId>
-           <artifactId>log4j-web</artifactId>
-           <version>${log4j2.version}</version>
-       </dependency>
-
-       <dependency>
-           <groupId>commons-logging</groupId>
-           <artifactId>commons-logging</artifactId>
-           <version>1.1.3</version>
-       </dependency>
-       <dependency>
            <groupId>commons-io</groupId>
            <artifactId>commons-io</artifactId>
            <version>2.0</version>
@@ -127,11 +111,6 @@
            <artifactId>commons-collections4</artifactId>
            <version>4.0</version>
        </dependency>
-       	<dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>slf4j-log4j12</artifactId>
-			<version>1.7.2</version>
-		</dependency>
 
        <dependency>
            <groupId>jstl</groupId>
@@ -166,11 +145,48 @@
             <artifactId>commons-fileupload</artifactId>
             <version>1.3.1</version>
         </dependency>
+      <!-- log start-->
       <dependency>
-          <groupId>junit</groupId>
-          <artifactId>junit</artifactId>
-          <version>4.11</version>
+          <groupId>ch.qos.logback</groupId>
+          <artifactId>logback-classic</artifactId>
+          <version>${logback.version}</version>
       </dependency>
+
+      <dependency>
+          <groupId>ch.qos.logback</groupId>
+          <artifactId>logback-core</artifactId>
+          <version>${logback.version}</version>
+      </dependency>
+
+      <dependency>
+          <groupId>org.slf4j</groupId>
+          <artifactId>slf4j-api</artifactId>
+          <version>${slf4j.version}</version>
+      </dependency>
+      <dependency>
+          <groupId>org.slf4j</groupId>
+          <artifactId>log4j-over-slf4j</artifactId>
+          <version>${slf4j.version}</version>
+      </dependency>
+      <dependency>
+          <groupId>org.slf4j</groupId>
+          <artifactId>jcl-over-slf4j</artifactId>
+          <version>${slf4j.version}</version>
+      </dependency>
+      <!-- log end-->
+
+      <!-- tool start-->
+      <dependency>
+          <groupId>com.google.guava</groupId>
+          <artifactId>guava</artifactId>
+          <version>18.0</version>
+      </dependency>
+      <dependency>
+          <groupId>org.apache.commons</groupId>
+          <artifactId>commons-lang3</artifactId>
+          <version>3.4</version>
+      </dependency>
+      <!-- tool end-->
   </dependencies>
     <properties>
         <servlet.version>3.1.0</servlet.version>
@@ -179,7 +195,6 @@
         <mybatis.version>3.2.8</mybatis.version>
         <mybatis.spring.version>1.2.2</mybatis.spring.version>
         <bonecp.version>0.8.0.RELEASE</bonecp.version>
-        <log4j2.version>2.0.1</log4j2.version>
         <jstl.version>1.2</jstl.version>
         <junit.version>4.11</junit.version>
         <testng.version>6.8.8</testng.version>
@@ -187,7 +202,8 @@
         <tomcat.host>localhost</tomcat.host>
         <tomcat.user>admin</tomcat.user>
         <tomcat.passwd>admin</tomcat.passwd>
-
+        <logback.version>1.1.1</logback.version>
+        <slf4j.version>1.7.12</slf4j.version>
     </properties>
 
     <build>
