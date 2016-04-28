@@ -13,7 +13,7 @@ public class EncryptPropertyPlaceholderConfigurer extends PropertyPlaceholderCon
     protected String convertProperty(String propertyName, String propertyValue)
     {
 
-        //Èç¹ûÔÚ¼ÓÃÜÊôĞÔÃûµ¥ÖĞ·¢ÏÖ¸ÃÊôĞÔ
+        //å¦‚æœåœ¨åŠ å¯†å±æ€§åå•ä¸­å‘ç°è¯¥å±æ€§
         if (isEncryptProp(propertyName))
         {
             String decryptValue = DESUtils.getDecryptString(propertyValue);
